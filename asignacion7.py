@@ -8,13 +8,9 @@ response.raise_for_status()
 payload=response.json()
 pprint(payload)
 
-response = requests.get(
-    'https://sandboxdnac.cisco.com/dna/intent/api/v1/network-device',
-    headers={'X-Auth-Token':payload['Token']})
-list=response.json()['response']
-namelist=[]
-for j in range(len(list)):
-    namelist.append([list[j]['family'],list[j]['hostname'],
-    list[j]['managementIpAddress'],list[j]['lastUpdated'],
-    list[j]['reachabilityStatus']])
-pprint(namelist)
+response = requests.get('https://sandboxdnac.cisco.com/dna/intent/api/v1/network-device',headers={'X-Auth-Token':payload['Token']})
+lista=response.json()['response']
+array=[]
+for i in range(len(list)):
+    array.append([lista[i]['family'],lista[i]['hostname'],lista[i]['managementIpAddress'],lista[i]['lastUpdated'],lista[i]['reachabilityStatus']])
+pprint(array)
