@@ -11,6 +11,6 @@ pprint(payload)
 response = requests.get('https://sandboxdnac.cisco.com/dna/intent/api/v1/network-device',headers={'X-Auth-Token':payload['Token']})
 lista=response.json()['response']
 array=[]
-for i in range(len(list)):
+for i in range(len(lista)):
     array.append([lista[i]['family'],lista[i]['hostname'],lista[i]['managementIpAddress'],lista[i]['lastUpdated'],lista[i]['reachabilityStatus']])
 pprint(array)
